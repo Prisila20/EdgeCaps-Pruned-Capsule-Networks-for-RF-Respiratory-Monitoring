@@ -1,5 +1,5 @@
 # EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring
-EdgeCaps is an efficient Capsule Networks based respiratory monitoring system designed for resource constrained environments.
+EdgeCaps is an efficient Capsule Networks based contactless respiratory monitoring system designed for resource constrained environments.
 
 ## Overview
 This repository provides the implementation of **EdgeCaps**, a lightweight Capsule Network designed for efficient respiratory anomaly detection using Ultra-Wideband (UWB) radar signals. The proposed framework targets deployment on resource-constrained edge devices by combining model compression and knowledge transfer techniques.
