@@ -1,0 +1,28 @@
+# Example: sweep_config.yaml
+program: distillation.py
+method: bayes   # or "grid", "random"
+metric:
+  name: distill_val_accuracy
+  goal: maximize
+
+parameters:
+  learning_rate:
+    values: [1e-5, 1e-4, 1e-3]
+  alpha:
+    values: [0.3, 0.5, 0.7]
+  temperature:
+    values: [1, 2, 4]
+  epochs:
+    values: [30, 50, 100]
+  batch_size:
+    values: [16, 32]
+  schedule_type_teacher:
+    values: ['cosine', 'linear', 'warmup_constant', 'None']
+  schedule_type_student:
+    values: ["cosine", "linear", "warmup_constant", "None"]
+  schedule_type_distil:
+    values: ["cosine", "linear", "warmup_constant", "None"]
+  warmup_epochs:
+      values: [1, 5, 10] #percent 
+
+
