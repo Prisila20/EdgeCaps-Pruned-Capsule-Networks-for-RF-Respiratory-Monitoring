@@ -1,0 +1,9 @@
+numpy>=1.18,<2.0
+torch>=1.11
+scikit-learn
+matplotlib
+pyserial
+pandas
+torch
+matplotlib
+PIL
