@@ -31,26 +31,6 @@ The deployment consists of:
 
 ---
 
-## Repository Structure
-
-```text
-.
-├── inference/
-│   ├── realtime_inference.py
-│   ├── log_final_inference.py
-│   └── models/
-│
-├── radar_writer/
-│   ├── complete_radar_writer.py
-│   └── utilities/
-│
-├── shared_data/
-│
-├── requirements.txt
-└── README.md
-```
-
----
 
 ### Installation
 
