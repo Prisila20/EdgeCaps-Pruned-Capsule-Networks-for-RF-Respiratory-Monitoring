@@ -2,25 +2,53 @@
 EdgeCaps is an efficient Capsule Networks based contactless respiratory monitoring system designed for resource constrained environments.
 
 ## Overview
-This repository provides the implementation of **EdgeCaps**, a lightweight Capsule Network designed for efficient respiratory anomaly detection using Ultra-Wideband (UWB) radar signals. The proposed framework targets deployment on resource-constrained edge devices by combining model compression and knowledge transfer techniques.
 
-## Key Contributions
-- **Multi-stage compression pipeline**: architecture reduction, structured and unstructured pruning, and knowledge distillation  
-- **Significant efficiency gains**: ~95% reduction in FLOPs and model size  
-- **Edge deployment**: validated on Raspberry Pi for real-time respiratory monitoring  
-- **Comprehensive evaluation**: comparison with state-of-the-art lightweight architectures (MobileNetV3, ShuffleNet, SqueezeNet)
+A key goal of this work is enabling **real-time respiratory monitoring on portable and low cost devices**.
+
+To achieve this, we combine:
+
+- Model compression (pruning + architecture reduction)
+- Knowledge Distillation (KD)
+- Lightweight Capsule Network design
+- FLOPs and memory optimization
+
+### Deployment Objectives
+
+- Reduce model size (MB)
+- Reduce computational cost (GFLOPs)
+- Maintain high classification performance
+- Enable inference on low-power devices
+
+### Optimization Pipeline
+
+Teacher Model → Student Model → Pruning  → Knowledge Distillation → Edge-Ready Model
+
 
 ## Repository Structure
-This repository contains the codebase and experimental pipeline used to develop and evaluate the EdgeCaps framework. The proposed approach leverages Capsule Networks to effectively capture the inherent temporal and spatial variations in UWB radar signals for respiratory classification. Model efficiency is further enhanced through pruning and knowledge distillation.
+This repository contains the codebase and experimental pipeline structured as:
+
+- Hyperparameter seach experiment
+- Model training and SOTA comparison
+- Edge deployment on Raspberry Pi-4
 
 ## Installation
 pip install -r requirements.txt
 
 ## Usage
+To train models: 
+python -m scripts.run_experiment \
+    --prune_ratio 0.3 \
+    --temperature 5 \
+    --alpha 0.7 \
+    --lr 1e-4 \
+    --batch_size 32 \
+    --data_path ./data/Edgecaps_datasets
 
+For the Raspberry Pi-deployement
+ - Run the chroot.sh file to install all requirements and set environment to support integration of radar and really time data aquisition. 
+ -
 
 ## Dataset
 See `data/README.md`
 
 ## Citation
-(Add your paper)
