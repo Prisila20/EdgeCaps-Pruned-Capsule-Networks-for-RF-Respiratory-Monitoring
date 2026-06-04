@@ -51,7 +51,7 @@ pip install --upgrade pip
 
 pip install -r requirements.txt
 ```
-This environment will later be used to run the real-time respiratory inference pipeline, while radar raw data acquisition is handled separately inside the ARMHF chroot environment.
+This environment will later be used to run the real-time respiratory inference pipeline, while raw radar data acquisition is handled separately within the ARMHF chroot environment.
 
 ---
 
@@ -104,6 +104,7 @@ CC=arm-linux-gnueabihf-gcc \
 
 make -j4
 make altinstall
+
 #set python 3.5 path
 export LD_LIBRARY_PATH=/usr/local/python3.5/lib:$LD_LIBRARY_PATH
 
@@ -125,6 +126,7 @@ cd ~tmp/
 wget "https://sourceforge.net/projects/boost/files/boost/1.62.0/boost_1_62_0.tar.gz/download" -O boost_1_62_0.tar.gz
 tar xzf boost_1_62_0.tar.gz
 cd /tmp/boost_1_62_0
+
 ./bootstrap.sh
 ./b2 -j$(nproc) install --with-python --with-filesystem \
    include=/usr/local/python3.5/include/python3.5m \
@@ -139,11 +141,10 @@ ls /usr/local/lib | grep libboost_filesystem
 ---
 
 ## 5. Radar ModuleConnector Installation
-From the Raspberry host, download the radar module connector from the Legacy-SW Package available at https://github.com/novelda/Legacy-SW/tree/master/ModuleConnector. Then follow these steps to install to chroot.
+On the Raspberry Pi host system, clone or download the Legacy-SW repository from https://github.com/novelda/Legacy-SW/tree/master/ModuleConnector. Then follow the steps below to install it in the chroot environment.
 
 ```
-#Copy and install module connectors to chroot
-#1. Install scp on Raspberry Pi from host do:
+#From host system:
 sudo mkdir -p /srv/pi32-chroot/mnt/pymoduleconnector
 sudo mount --bind \
   /home/rpi/Legacy-SW/ModuleConnector/ModuleConnector-rpi-1/python35-arm-linux-gnueabihf \
@@ -173,7 +174,7 @@ sudo mount --bind /sys   /srv/pi32-chroot/sys
 # Create a mountpoint inside the chroot (on the host filesystem)
 sudo mkdir -p /srv/pi32-chroot/mnt/radar_scripts
 
-# # Bind-mount your host's radar_working folder into the chroot
+#Bind-mount your host's radar_working folder into the chroot
 sudo mount --bind \
     /home/rpi/scripts_prisila/radar_writer \
     /srv/pi32-chroot/mnt/radar_scripts     #change folder names accordingly
@@ -191,15 +192,25 @@ sudo mkdir -p /shared_data
 ```
 
 Bind mount the shared directory
-```sudo mount --bind /srv/pi32-chroot/shared_data /shared_data```
+
+```
+sudo mount --bind /srv/pi32-chroot/shared_data /shared_data
+```
 
 Configure Persistent Mount:
-``sudo nano /etc/fstab```
+
+```
+sudo nano /etc/fstab
+```
 Add:
-```/srv/pi32-chroot/shared_data   /shared_data   none   bind   0   0 ```
+
+```
+/srv/pi32-chroot/shared_data   /shared_data   none   bind   0   0 
+```
 
 Apply changes:
-```sudo mount -a
+```
+sudo mount -a
 ```
 ---
 
@@ -223,9 +234,6 @@ Open a second terminal. Activate the inference environment and navigate to the i
 ```
 python log_final_inference.py
 ```
-The inference pipeline monitors the shared directory, processes incoming radar frames, and generates respiratory state class in real time.
-
-
-
+The inference pipeline monitors the shared directory, processes incoming radar frames, and generates a respiratory state class in real time.
 
 ---
