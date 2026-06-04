@@ -232,7 +232,7 @@ The script continuously writes radar frames to the shared directory.
 ### Model Inference
 Open a second terminal. Activate the inference environment and navigate to the inferencing script, then run the model inference script:
 ```
-python log_final_inference.py
+python final_inference.py
 ```
 The inference pipeline monitors the shared directory, processes incoming radar frames, and generates a respiratory state class in real time.
 
