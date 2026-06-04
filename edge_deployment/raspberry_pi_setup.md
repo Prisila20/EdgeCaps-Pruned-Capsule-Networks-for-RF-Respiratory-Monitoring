@@ -176,7 +176,7 @@ sudo mkdir -p /srv/pi32-chroot/mnt/radar_scripts
 
 #Bind-mount your host's radar_working folder into the chroot
 sudo mount --bind \
-    /home/rpi/scripts_prisila/radar_writer \
+    /home/rpi/radar_writer \
     /srv/pi32-chroot/mnt/radar_scripts     #change folder names accordingly
 ```
 

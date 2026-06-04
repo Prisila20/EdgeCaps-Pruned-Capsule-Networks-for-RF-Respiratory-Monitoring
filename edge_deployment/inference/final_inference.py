@@ -109,19 +109,11 @@ def process_batch(batch_data, PRF=500.0, save_path="spectrogram.png"):
     i_data = batch_data["i_data"]
     q_data = batch_data["q_data"]
 
-    # Reconstruct the range axis using your specified parameters:
-    # frame_start = 0.1858
-    # frame_stop  = 3.0154
-    # bin_length = 8 * 1.5e8 / 23.328e9
-    # range_vector = np.arange(frame_start - 1e-5, frame_stop + 1e-5, bin_length)
-    # print("Range vector length:", len(range_vector))
-
     frame_start, bin_len, frame_stop = 0.1858, 8 * 1.5e8 / 23.328e9 , 2.5000
     range_vector = np.arange(frame_start - 1e-5, frame_stop + 1e-5, bin_len)
     
 
-    # Select range bins between 0.50858 and 1.4100 meters
-    # range_idx = np.where((range_vector >= 0.50858) & (range_vector <= 1.4100))[0]
+
     range_idx = np.where((range_vector >= 0.10858) & (range_vector <= 1.1100))[0]
     print("Selected range indices:", range_idx)
 
@@ -133,19 +125,14 @@ def process_batch(batch_data, PRF=500.0, save_path="spectrogram.png"):
     print("Selected signal shape:", sig.shape)
 
     # Average across the selected range bins to obtain a 1D slow-time signal per frame:
-    # slow_time_signal = np.mean(selected_signal, axis=1)
-    # slow_time_signal_no_dc = slow_time_signal - np.mean(slow_time_signal)
+    slow_time_signal = np.mean(sig, axis=1)
+    slow_time_signal_no_dc = slow_time_signal - np.mean(slow_time_signal)
 
     sig -= sig.mean(axis=0)
     b, a = butter(2, [0.1, 0.7], btype='band', fs=500)
     bf = filtfilt(b, a, sig, axis=0)
 
-    # Filter both the real and imaginary parts of the slow-time signal:
-    # I_filtered = filter_breathing_signal(np.real(slow_time_signal_no_dc), fs=17.0)
-    # Q_filtered = filter_breathing_signal(np.imag(slow_time_signal_no_dc), fs=17.0)
-    
-    # return I_filtered, Q_filtered
-           # Mean across bins and spectrogram
+
     x = np.mean(bf, axis=1)
     nperseg = 128
     noverlap = int(nperseg * 0.95)
