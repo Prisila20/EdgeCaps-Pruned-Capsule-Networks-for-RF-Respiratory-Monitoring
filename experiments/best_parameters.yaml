@@ -9,7 +9,7 @@ teacher_parameters:
     teacher: "None"
     student: "linear"
     distil: "None"
-  datapath: "/home/ai4d/Documents/Prisila/Teacher_Student/Data/image_clean"
+  datapath: "data/EdgeCaps_datasets"
 
 
 distill_parameters:
