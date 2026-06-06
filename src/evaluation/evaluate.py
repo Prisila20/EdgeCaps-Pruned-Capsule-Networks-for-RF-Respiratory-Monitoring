@@ -10,45 +10,6 @@ import tempfile
 from src.utils import count_parameters, model_size_mb, compute_flops, compute_sparsity
 import numpy as np
 
-# def count_parameters(model):
-#     return sum(p.numel() for p in model.parameters() if p.requires_grad)
-
-# def model_size_mb(model):
-#     with tempfile.NamedTemporaryFile(suffix=".pth", delete=False) as f:
-#         temp_path = f.name
-#     try:
-#         torch.save(model.state_dict(), temp_path)
-#         size = os.path.getsize(temp_path) / (1024 ** 2)
-#     finally:
-#         os.remove(temp_path)
-#     return size
-
-# def compute_sparsity(model):
-#     total, zeros = 0, 0
-#     for p in model.parameters():
-#         total += p.numel()
-#         zeros += torch.sum(p == 0).item()
-#     return zeros / total
-
-# def compute_flops(model, input_size=(1, 3, 64, 64), device="cpu"):
-#     model = model.to(device)
-#     model.eval()
-
-#     dummy_input = torch.randn(input_size).to(device)
-
-#     # Step 1: get raw numbers first
-#     macs, params = profile(model, inputs=(dummy_input,), verbose=False)
-
-#     # Step 2: math on raw numbers
-#     gflops = (macs * 2) / 1e9
-
-#     # Step 3: format for display only
-#     macs_readable, params_readable = clever_format([macs, params], "%.3f")
-#     print(f"MACs: {macs_readable} | Params: {params_readable} | GFLOPs: {gflops:.4f}")
-
-#     return gflops
-
-
 def evaluate_and_log(model, name, test_loader, device,
                      teacher_params, teacher_size, teacher_flops):
 
