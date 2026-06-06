@@ -9,7 +9,7 @@ with open("wandb_results.txt", "w", encoding="utf-8") as f:
     import pandas as pd
     import yaml
     api = wandb.Api()
-    project_path = "msamwelmollel/dist_exp"
+    project_path = "project_folder"
     project_runs = api.runs(project_path, per_page=1000)
 
 
@@ -117,7 +117,6 @@ with open("wandb_results.txt", "w", encoding="utf-8") as f:
     print("Runs with student_val_accuracy > 80.5:")
     print(filtered_runs)
 
-    # If you need the actual run object for a specific run
     if len(filtered_runs) > 0:
         specific_run_id = filtered_runs.iloc[0]['run_id']  # Get run with highest val_rmse
         print(f"\nFetching details for run with highest student_val_accuracy: {specific_run_id}")
