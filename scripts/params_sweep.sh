@@ -7,7 +7,7 @@
 #SBATCH --mem=32G
 #SBATCH --gres=gpu:1
 #SBATCH --partition=gpu
-#SBATCH --output=/home/postgrads/2803323I/edge_exp/dist_exp/logs/output_train_%A_%a.log
+#SBATCH --output=output_train_%A_%a.log
 
 # Activate env
 module load python
@@ -30,7 +30,6 @@ l=${l_vals[$(( i % 3 ))]}
 echo "Running job $i"
 echo "Params: p=$p t=$t a=$a lr=$l"
 
-# python run_experiment.py \
 python -m scripts.run_experiment \
     --prune_ratio $p \
     --temperature $t \
