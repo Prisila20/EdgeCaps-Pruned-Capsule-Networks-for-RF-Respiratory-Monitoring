@@ -41,16 +41,9 @@ contact sensors, cameras, or cloud connection required.
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A[Novelda X4M200/X4M03<br/>UWB radar] -->|I/Q frames| B[Bandpass filter<br/>0.1-0.7 Hz breathing band]
-    B --> C[Micro-Doppler<br/>spectrogram<br/>64x64 RGB]
-    C --> D[Capsule Network<br/>classifier]
-    D --> E{Respiratory state}
-    E --> F[Eupnea]
-    E --> G[Bradypnea]
-    E --> H[Tachypnea]
-```
+<p align="center">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="EdgeCaps flow" width="800">
+</p>
 
 The radar reflects pulses off the chest wall; chest displacement during breathing
 modulates the returned signal. EdgeCaps isolates the breathing band, renders a
@@ -318,26 +311,12 @@ comparison.
 
 ## Edge deployment (Raspberry Pi)
 
-The model runs on a **Raspberry Pi 4** with a **Novelda X4M200/X4M03** UWB radar. Because
-the radar's `ModuleConnector` library only ships binaries for Python 3.5 while PyTorch
-needs Python 3.8+, deployment uses a **dual-environment** design that communicates over a
-shared directory:
+The model runs on a **Raspberry Pi 4** with a **Novelda X4M200/X4M03** UWB radar. Because the radar's `ModuleConnector` library only ships binaries for Python 3.5, while PyTorch
+needs Python 3.8+, deployment uses a **dual-environment** design that communicates over a shared directory:
 
-```
-Novelda X4M200 Radar
-        │
-        ▼
-Python 3.5 ARMHF chroot (32-bit) ── ModuleConnector ── radar acquisition
-        │
-        ▼
-   /shared_data  (current.npy + batch_info.json)
-        │
-        ▼
-Python 3.8+ host (64-bit) ── PyTorch ── real-time inference
-        │
-        ▼
- Respiratory classification + on-device telemetry
-```
+<p align="center">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="EdgeCaps" width="800">
+</p>
 
 - `edge_deployment/radar_writer/complete_radar_writer.py` configures the X4 radar and
   continuously writes ~15-second I/Q batches to `/shared_data`.
@@ -358,11 +337,11 @@ from your generated `csv_4/` output (and `metrics.csv` from the analysis noteboo
 
 | Model | Accuracy | F1 | Params ($\times 10^6$) | Size (MB) | GFLOPs  | Δ Size vs Teacher (%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Teacher (CapsNet) | 97.50 | 97.54 |  33.68 | 128.48 | 0.0824 | — |
+| Teacher (CapsNet) | **97.50** | **97.54** |  **33.68** | **128.48** | **0.0824** | — |
 | Student (scratch) | 85.90 | 85.32 | 2.11 | 8.06 | 0.0049 | 93.73 |
 | Student (Pruned) | 83.72 | 82.78 | 1.59 | 6.06 | 0.0038 | 95.29 |
 | Student (KD) | 91.85 | 90.67 | 2.11 | 8.06 | 0.0049 | 93.73 |
-| **Student (Pruned + KD)** | 95.50 | 95.35 | 1.59 | 6.06 | 0.0038 | 95.29 |
+| **Student (Pruned + KD)** | **95.50** | **95.35** | **1.59** | **6.06** | **0.0038** | **95.29** |
 | ResNet-50 | 88.43 | 88.36 | 1.52 | 90.00 | 0.6746 | 29.95 |
 | ShuffleNet | 64.46 | 63.94 | 0.34 | 1.45 | 0.0071 | 98.87 |
 | SqueezeNet | 89.26 | 88.95 | 0.74 | 2.83 | 0.0988 | 97.80 |
