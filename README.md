@@ -55,8 +55,7 @@ modulates the returned signal. EdgeCaps isolates the breathing band, renders a
 spectrogram image, and lets a Capsule Network — which preserves spatial/pose
 relationships through **dynamic routing** — recognize the breathing pattern.
 
-The compression pipeline produces five model variants from the same architecture so
-they can be compared head-to-head:
+The compression pipeline produces five model variants from the same architecture, so they can be compared head-to-head:
 
 ```mermaid
 flowchart TD
@@ -355,34 +354,40 @@ is in **[`edge_deployment/raspberry_pi_setup.md`](edge_deployment/raspberry_pi_s
 The experiment pipeline emits a per-model results table. Populate the summary below
 from your generated `csv_4/` output (and `metrics.csv` from the analysis notebook):
 
-| Model | Accuracy | F1 | Params | Size (MB) | GFLOPs | Δ Size vs Teacher |
+| Model | Accuracy | F1 | Params (x 10^6) | Size (MB) | GFLOPs  | Δ Size vs Teacher (%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Teacher (CapsNet) | — | — | — | — | — | — |
-| Student (scratch) | — | — | — | — | — | — |
-| Student (Pruned) | — | — | — | — | — | — |
-| Student (KD) | — | — | — | — | — | — |
-| **Student (Pruned + KD)** | — | — | — | — | — | — |
-| ResNet-50 | — | — | — | — | — | — |
-| ShuffleNet | — | — | — | — | — | — |
-| SqueezeNet | — | — | — | — | — | — |
-| MobileNetV3-S | — | — | — | — | — | — |
+| Teacher (CapsNet) | 97.50 | 97.54 |  33.68 | 128.48 | 0.0824 | — |
+| Student (scratch) | 85.90 | 85.32 | 2.11 | 8.06 | 0.0049 | 93.73 |
+| Student (Pruned) | 83.72 | 82.78 | 1.59 | 6.06 | 0.0038 | 95.29 |
+| Student (KD) | 91.85 | 90.67 | 2.11 | 8.06 | 0.0049 | 93.73 |
+| **Student (Pruned + KD)** | 95.50 | 95.35 | 1.59 | 6.06 | 0.0038 | 95.29 |
+| ResNet-50 | 88.43 | 88.36 | 1.52 | 90.00 | 0.6746 | 29.95 |
+| ShuffleNet | 64.46 | 63.94 | 0.34 | 1.45 | 0.0071 | 98.87 |
+| SqueezeNet | 89.26 | 88.95 | 0.74 | 2.83 | 0.0988 | 97.80 |
+| MobileNetV3-S | 36.36 | 17.78 | 1.52 | 5.93 | 0.0120 | 95.39 |
 
 ---
 
 ## Citation
 
-If you use EdgeCaps in your research, please cite this repository (replace the
-placeholders with your publication details):
+If you use EdgeCaps in your research, please cite the paper associated with this repository as:
 
 ```bibtex
-@misc{edgecaps,
-  title        = {EdgeCaps: Pruned Capsule Networks for RF Respiratory Monitoring},
-  author       = {<Authors>},
-  year         = {2026},
-  howpublished = {\url{<your-repo-url>}},
-  note         = {Capsule networks with knowledge distillation and pruning for
-                  UWB-radar respiratory classification on edge devices}
-}
+@ARTICLE{11535373,
+author={Ishabakaki, Prisila and Mollel, Michael and Hameed, Hira and Abbas, Hasan and Imran, Muhammad and Abbasi, Qammer H.},
+journal={ IEEE Transactions on Artificial Intelligence },
+title={{ EdgeCaps: Pruned Capsule Networks for RF Vital Sign Measurement in Real-time }},
+year={5555},
+volume={1},
+number={01},
+ISSN={2691-4581},
+pages={1-13},
+keywords={Modeling;Timing;Monitoring;Accuracy;Radar;Radio frequency;Artificial intelligence;Educational institutions;Labeling;Training},
+doi={10.1109/TAI.2026.3696898},
+url = {https://doi.ieeecomputersociety.org/10.1109/TAI.2026.3696898},
+publisher={IEEE Computer Society},
+address={Los Alamitos, CA, USA},
+month=may}
 ```
 
 ---
