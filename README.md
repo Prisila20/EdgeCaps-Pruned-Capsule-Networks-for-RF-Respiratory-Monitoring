@@ -51,14 +51,17 @@ relationships through **dynamic routing** — recognize the breathing pattern.
 
 The compression pipeline produces five model variants from the same architecture, so they can be compared head-to-head:
 
-```mermaid
-flowchart TD
-    T[Teacher CapsNet<br/>CapsuleNetworkOptimized] --> S1[Student from scratch]
-    T -.knowledge distillation.-> S2[Student + KD]
-    S1 --> P[Student + Pruning]
-    T -.KD.-> PK[Student + Pruning + KD]
-    P --> PK
-```
+#```mermaid
+#flowchart TD
+ #   T[Teacher CapsNet<br/>CapsuleNetworkOptimized] --> S1[Student from scratch]
+ #   T -.knowledge distillation.-> S2[Student + KD]
+ #   S1 --> P[Student + Pruning]
+  #  T -.KD.-> PK[Student + Pruning + KD]
+# P --> PK  
+#```
+<p align="center">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/compression_strategies.jpg" alt="EdgeCaps flow" width="600">
+</p>
 
 ---
 
