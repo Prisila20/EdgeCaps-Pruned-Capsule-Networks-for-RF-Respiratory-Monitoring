@@ -309,7 +309,7 @@ The model runs on a **Raspberry Pi 4** with a **Novelda X4M200/X4M03** UWB radar
 needs Python 3.8+, deployment uses a **dual-environment** design that communicates over a shared directory:
 
 <p align="center">
-  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="EdgeCaps" width="800">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="EdgeCaps" width="600">
 </p>
 
 - `edge_deployment/radar_writer/complete_radar_writer.py` configures the X4 radar and
