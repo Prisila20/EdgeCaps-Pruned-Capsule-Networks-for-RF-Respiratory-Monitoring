@@ -43,7 +43,7 @@ contact sensors, cameras, or cloud connection required.
 
 ```mermaid
 flowchart LR
-    A[Novelda X4M200/X4M03<br/>UWB radar] -->|I/Q frames| B[Bandpass filter<br/>0.1-0.7 Hz breathing band]
+    A[X4M200/X4M03<br/>UWB radar] -->|I/Q frames| B[Bandpass filter<br/>0.1-0.7 Hz breathing band]
     B --> C[Micro-Doppler<br/>spectrogram<br/>64x64 RGB]
     C --> D[Capsule Network<br/>classifier]
     D --> E{Respiratory state}
