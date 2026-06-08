@@ -41,7 +41,7 @@ real time on a **Raspberry Pi 4** paired with a Novelda X4M200/X4M03 radar — n
 ## How it works
 
 <p align="center">
-  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/cover_image_edgecaps.pdf" alt="EdgeCaps flow" width="800">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/cover_image_edgecaps_page.jpg" alt="EdgeCaps flow" width="800">
 </p>
 
 The radar reflects pulses off the chest wall; chest displacement during breathing
