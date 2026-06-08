@@ -3,7 +3,7 @@
 [![HuggingFace Dataset](https://img.shields.io/badge/🤗%20HuggingFace-DatasetACL-yellow)](https://huggingface.co/datasets/sartifyllc/Sukuma-Voices-ACL)
 [![HuggingFace TTS](https://img.shields.io/badge/🤗%20HuggingFace-ModelTTS-red)](https://huggingface.co/sartifyllc/sukuma-voices-tts)
 [![HuggingFace TTS](https://img.shields.io/badge/🤗%20HuggingFace-ModelASR-gree)](https://huggingface.co/sartifyllc/sukuma-voices-asr)
-[![Paper](https://img.shields.io/badge/Paper-ACL%202025-blue)](https://www.computer.org/csdl/journal/ai/5555/01/11535373/2gO6aCu6aCQ)
+[![Paper](https://img.shields.io/badge/Paper-IEEE%202026-blue)](https://www.computer.org/csdl/journal/ai/5555/01/11535373/2gO6aCu6aCQ)
 
 # EdgeCaps: Pruned Capsule Networks for RF Respiratory Monitoring
 
