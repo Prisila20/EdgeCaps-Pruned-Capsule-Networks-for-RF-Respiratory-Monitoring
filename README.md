@@ -41,16 +41,9 @@ contact sensors, cameras, or cloud connection required.
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A[X4M200/X4M03<br/>UWB radar] -->|I/Q frames| B[Bandpass filter<br/>0.1-0.7 Hz breathing band]
-    B --> C[Micro-Doppler<br/>spectrogram<br/>64x64 RGB]
-    C --> D[Capsule Network<br/>classifier]
-    D --> E{Respiratory state}
-    E --> F[Eupnea]
-    E --> G[Bradypnea]
-    E --> H[Tachypnea]
-```
+<p align="center">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="EdgeCaps flow" width="800">
+</p>
 
 The radar reflects pulses off the chest wall; chest displacement during breathing
 modulates the returned signal. EdgeCaps isolates the breathing band, renders a
@@ -322,7 +315,7 @@ The model runs on a **Raspberry Pi 4** with a **Novelda X4M200/X4M03** UWB radar
 needs Python 3.8+, deployment uses a **dual-environment** design that communicates over a shared directory:
 
 <p align="center">
-  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="Sukuma Voices" width="800">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="EdgeCaps" width="800">
 </p>
 
 - `edge_deployment/radar_writer/complete_radar_writer.py` configures the X4 radar and
