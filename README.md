@@ -15,8 +15,7 @@ classifies the breathing state into one of three classes:
 
 A full-size **teacher** Capsule Network is compressed into an **ultra-small student**
 through **knowledge distillation** and **L1 pruning** so that the final model runs in
-real time on a **Raspberry Pi 4** paired with a Novelda X4M200/X4M03 radar — no
-contact sensors, cameras, or cloud connection required.
+real time on a **Raspberry Pi 4** paired with a Novelda X4M200/X4M03 radar — no contact sensors, cameras, or cloud connection required.
 
 > **License:** [CC0 1.0 Universal](LICENSE) (public domain dedication).
 
@@ -42,7 +41,7 @@ contact sensors, cameras, or cloud connection required.
 ## How it works
 
 <p align="center">
-  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/chroot_host_relation.png" alt="EdgeCaps flow" width="800">
+  <img src="https://github.com/Prisila20/EdgeCaps-Pruned-Capsule-Networks-for-RF-Respiratory-Monitoring/blob/main/scripts/cover_image_edgecaps.pdf" alt="EdgeCaps flow" width="800">
 </p>
 
 The radar reflects pulses off the chest wall; chest displacement during breathing
