@@ -1,4 +1,4 @@
-[![Paper](https://img.shields.io/badge/Paper-IEEETransactionsOnArtificialIntelligence%202026-blue)](https://www.computer.org/csdl/journal/ai/5555/01/11535373/2gO6aCu6aCQ)
+[![Paper](https://img.shields.io/badge/Paper-IEEETransactionsOnArtificial%20Intelligence%202026-blue)](https://www.computer.org/csdl/journal/ai/5555/01/11535373/2gO6aCu6aCQ)
 
 # EdgeCaps: Pruned Capsule Networks for RF Respiratory Monitoring
 
