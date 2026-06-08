@@ -354,7 +354,7 @@ is in **[`edge_deployment/raspberry_pi_setup.md`](edge_deployment/raspberry_pi_s
 The experiment pipeline emits a per-model results table. Populate the summary below
 from your generated `csv_4/` output (and `metrics.csv` from the analysis notebook):
 
-| Model | Accuracy | F1 | Params (x 10^6) | Size (MB) | GFLOPs  | Δ Size vs Teacher (%) |
+| Model | Accuracy | F1 | Params ($\times 10^6$) | Size (MB) | GFLOPs  | Δ Size vs Teacher (%) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Teacher (CapsNet) | 97.50 | 97.54 |  33.68 | 128.48 | 0.0824 | — |
 | Student (scratch) | 85.90 | 85.32 | 2.11 | 8.06 | 0.0049 | 93.73 |
