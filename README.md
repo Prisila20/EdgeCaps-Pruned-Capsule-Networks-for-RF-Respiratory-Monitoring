@@ -344,11 +344,11 @@ from your generated `csv_4/` output (and `metrics.csv` from the analysis noteboo
 
 | Model | Accuracy | F1 | Params ($\times 10^6$) | Size (MB) | GFLOPs  | Δ Size vs Teacher (%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Teacher (CapsNet) | 97.50 | 97.54 |  33.68 | 128.48 | 0.0824 | — |
+| Teacher (CapsNet) | **97.50** | **97.54** |  **33.68** | **128.48** | **0.0824** | — |
 | Student (scratch) | 85.90 | 85.32 | 2.11 | 8.06 | 0.0049 | 93.73 |
 | Student (Pruned) | 83.72 | 82.78 | 1.59 | 6.06 | 0.0038 | 95.29 |
 | Student (KD) | 91.85 | 90.67 | 2.11 | 8.06 | 0.0049 | 93.73 |
-| **Student (Pruned + KD)** | 95.50 | 95.35 | 1.59 | 6.06 | 0.0038 | 95.29 |
+| **Student (Pruned + KD)** | **95.50** | **95.35** | **1.59** | **6.06** | **0.0038** | **95.29** |
 | ResNet-50 | 88.43 | 88.36 | 1.52 | 90.00 | 0.6746 | 29.95 |
 | ShuffleNet | 64.46 | 63.94 | 0.34 | 1.45 | 0.0071 | 98.87 |
 | SqueezeNet | 89.26 | 88.95 | 0.74 | 2.83 | 0.0988 | 97.80 |
