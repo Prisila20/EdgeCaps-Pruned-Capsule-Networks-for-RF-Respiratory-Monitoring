@@ -8,13 +8,11 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from scipy.signal import butter, filtfilt, spectrogram
 from plot_spectrogram import generate_spectrogram
-
-# New imports for logging and system monitoring
 import psutil
 import csv
 from datetime import datetime
 
-# Optional: Power monitoring via INA219 sensor
+# Power monitoring via INA219 sensor
 try:
     from adafruit_ina219 import INA219
     import board
@@ -175,7 +173,7 @@ def process_batch(batch_data, PRF=500.0, save_path="spectrogram.png"):
     return img_tensor
 
 def main():
-    MODEL_PATH = "/home/rpi/scripts_prisila/inference/distilled_student_model.pth"
+    MODEL_PATH = "distilled_student_model.pth"
     model = torch.load(MODEL_PATH, map_location=torch.device('cpu'), weights_only=False)
     model.eval()
 
