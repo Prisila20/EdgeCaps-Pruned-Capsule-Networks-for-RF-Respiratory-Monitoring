@@ -34,7 +34,7 @@ def test_dataset(batch_size=1):
         transforms.ToTensor()
     ])
     
-    data_path = "/home/ai4d/Documents/Prisila/Teacher_Student/Data/test_images"
+    data_path = "images"
 
     # Create dataset
     dataset = datasets.ImageFolder(root=data_path, transform=transform)
@@ -46,7 +46,7 @@ def test_dataset(batch_size=1):
     return test_loader
 
 if __name__ == "__main__":
-    data_path = "/home/ai4d/Documents/Prisila/Teacher_Student/Data/image_clean"
+    data_path = "images"
     batch_size = 16
     
     train_loader, val_loader = load_dataset(data_path, batch_size, val_split=0.2)
